@@ -7,6 +7,11 @@ export const StarBackground = () => {
   useEffect(() => {
     generateStars();
     generateMeteors();
+    const handleResize = () => {
+      generateStars();
+    };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   const generateStars = () => {
@@ -36,7 +41,7 @@ export const StarBackground = () => {
         size: Math.random() * 3 + 1,
         x: Math.random() * 100,
         y: Math.random() * 20,
-        animationDelay: Math.random() * 15,
+        animationDelay: Math.random() * 5,
         animationDuration: Math.random() * 3 + 3,
       });
     }
@@ -68,7 +73,7 @@ export const StarBackground = () => {
             height: meteor.size + "px",
             left: meteor.x + "%",
             top: meteor.y + "%",
-            animationDelay: meteor.opacity,
+            animationDelay: meteor.animationDelay + "s",
             animationDuration: meteor.animationDuration + "s",
           }}
         />

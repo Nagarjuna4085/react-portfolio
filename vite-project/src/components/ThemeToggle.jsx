@@ -16,6 +16,7 @@ export const ThemeToggle = () => {
   }, []);
 
   const toggleTheme = () => {
+    console.log("...............");
     if (isDarkMode) {
       document.documentElement.classList.remove("dark");
       setIsDarkMode(false);
@@ -30,7 +31,7 @@ export const ThemeToggle = () => {
     <button
       onClick={toggleTheme}
       className={cn(
-        "fixed max-sm:hidden top-5 right-5 p-2 rounded-full transition-colors duration-300",
+        "fixed max-sm:hidden top-5 right-5 p-2 rounded-full transition-colors duration-300 z-[70]",
         "focus:outline-hidden"
       )}
     >
